@@ -1,0 +1,6 @@
+(define (* a b)
+  (define (iter sum a b)
+    (cond ((= b 0) sum)
+          ((even? b) (iter sum (double a) (halve b)))
+          (else (iter (+ sum a) a (- b 1)))))
+  (iter 0 a b))
