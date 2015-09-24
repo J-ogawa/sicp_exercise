@@ -1,0 +1,11 @@
+(define (cons a b)
+  (define (itelate sum a b)
+    (if (> a 0)
+      (itelate (* sum 2) (- a 1) b)
+      (if (> b 0)
+        (itelate (* sum 3) a (- b 1))
+        sum)))
+  (itelate 1 a b))
+
+(define (test1)
+  (cons 2 5))
