@@ -1,0 +1,20 @@
+(define (reverse2 l)
+  (define (iter src dst)
+    (if (null? src)
+      dst
+      (iter (cdr src) (cons (car src) dst))))
+  (iter l (list)))
+
+(define (same-parity x . y)
+  (let ((x-parity (odd? x)))
+    (define (iter src dst)
+      (if (null? src)
+        (reverse2 dst)
+        (if x-parity
+          (if (odd? (car src))
+            (iter (cdr src) (cons (car src) dst))
+            (iter (cdr src) dst))
+          (if (even? (car src))
+            (iter (cdr src) (cons (car src) dst))
+            (iter (cdr src) dst)))))
+    (iter y (list x))))
