@@ -1,0 +1,7 @@
+(define (for-each2 proc items)
+  (define (operate proc items)
+    (proc (car items))
+    (for-each2 proc (cdr items)))
+  (if (null? items)
+    ()
+    (operate proc items)))
