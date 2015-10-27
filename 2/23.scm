@@ -5,3 +5,7 @@
   (if (null? items)
     ()
     (operate proc items)))
+
+(define (for-each3 proc items)
+  (cond ((not (null? items))
+    ((lambda(x) (proc (car x)) (for-each3 proc (cdr x))) items))))
