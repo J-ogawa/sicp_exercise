@@ -10,3 +10,16 @@
         (iter (car l))
         (append (iter (car l)) (iter (cdr l))))))
   (iter l))
+
+(define (fringe l)
+    (display l)
+    (newline)
+  (if (not (pair? l))
+    l
+    (if (null? (cdr l))
+      (fringe (car l))
+      (if (not (pair? (car l)))
+        (cons (car l) (fringe (cdr l)))
+        (if (null? (cdr (car l)))
+          (fringe (cons (car (car l)) (cdr l)))
+          (fringe (cons (car (car l)) (cons (cdr (car l)) (cdr l)))))))))
