@@ -60,7 +60,7 @@
                (list 1 2)
                (list 1 2))))
 
-(define (test)
-  (balanced? (list (list 1
-                         (list (list 2 5) (list 3 (list (list 1 3) (list 3 1)))))
-                   (list 2 9))))
+(define (test2)
+  (balanced? (list (list 2
+                         (list (list 2 6) (list 3 (list (list 1 3) (list 3 1)))))
+                   (list 2 10))))
