@@ -33,8 +33,8 @@
 
 (define (test-transpose)
   (transpose (list (list 1  2  3  4)
-                         (list 5  6  7  8)
-                         (list 9 10 11 12))))
+                   (list 5  6  7  8)
+                   (list 9 10 11 12))))
 
 (define (test-matrix-*-matrix)
   (matrix-*-matrix (list (list 1  2  3  4)
