@@ -23,3 +23,15 @@
                       (enumerate-interval 1 (- j 1))))
                (enumerate-interval 1 (- i 1))))
     (enumerate-interval 1 n)))
+
+(define (sum-equal? l sum)
+  (= (accumulate + 0 l) sum))
+
+(define (sum-equal-trios n sum)
+  (filter (lambda(l)(sum-equal? l sum)) (unique-trios n)))
+
+(define (test1)
+  (sum-equal-trios 10 7))
+
+(define (test2)
+  (sum-equal-trios 20 15))
