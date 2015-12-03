@@ -17,35 +17,27 @@
 (define (queens board-size)
   (define (queen-cols k)
     (if (= k 0)
-      (list (list (list)))
-;      (filter
-;        (lambda(positions)(safe? k positions))
+      (list (list))
+      (filter
+        (lambda(positions)(safe? k positions))
         (flatmap
           (lambda (rest-of-queens) (map (lambda (new-row)(adjoin-position new-row k rest-of-queens))
                                         (enumerate-interval 1 board-size)))
-          (queen-cols (- k 1)))))
-  ;)
+          (queen-cols (- k 1))))))
   (queen-cols board-size))
 
 (define (adjoin-position row k rest-of-queens)
-  (map
-    (lambda(positions)(cons (list row k) positions))
-    rest-of-queens))
-
-  (define (same-column? pos1 pos2)
-
-   )
-
+  (cons row rest-of-queens))
 
 (define (safe? k positions)
-
-  (let (col (length (car positions)))
-  (define (iter k col rest-positions)
-    (if
-      (or (
-
-(print (length (list 1 2 3)))
-(print (queens 3))
-
-;(define (safe? k positions)
-;  (define (iter
+  (define (iter one distance rest)
+    (if (null? rest)
+      #t
+      (let ((target (car rest)))
+        (if (or
+              (= one target)
+              (= one (+ target distance))
+              (= one (- target distance)))
+          #f
+          (iter one (+ distance 1) (cdr rest))))))
+  (iter (car positions) 1 (cdr positions)))
