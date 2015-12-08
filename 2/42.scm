@@ -21,8 +21,10 @@
       (filter
         (lambda(positions)(safe? k positions))
         (flatmap
-          (lambda (rest-of-queens) (map (lambda (new-row)(adjoin-position new-row k rest-of-queens))
-                                        (enumerate-interval 1 board-size)))
+          (lambda (rest-of-queens)
+            (map (lambda (new-row)
+                   (adjoin-position new-row k rest-of-queens))
+                 (enumerate-interval 1 board-size)))
           (queen-cols (- k 1))))))
   (queen-cols board-size))
 
@@ -41,3 +43,6 @@
           #f
           (iter one (+ distance 1) (cdr rest))))))
   (iter (car positions) 1 (cdr positions)))
+
+(print (queens 4))
+(print (queens 5))
