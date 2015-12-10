@@ -2,4 +2,4 @@
   (if (= n 0)
     painter
     (let ((smaller (up-split painter (- n 1))))
-      (below painter (below smaller smaller)))))
+      (below painter (beside smaller smaller)))))
