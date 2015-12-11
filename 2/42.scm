@@ -36,11 +36,10 @@
     (if (null? rest)
       #t
       (let ((target (car rest)))
-        (if (or
-              (= one target)
-              (= one (+ target distance))
-              (= one (- target distance)))
-          #f
+        (and
+          (not (= one target))
+          (not (= one (+ target distance)))
+          (not (= one (- target distance)))
           (iter one (+ distance 1) (cdr rest))))))
   (iter (car positions) 1 (cdr positions)))
 
