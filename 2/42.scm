@@ -33,14 +33,13 @@
 
 (define (safe? k positions)
   (define (iter one distance rest)
-    (if (null? rest)
-      #t
-      (let ((target (car rest)))
-        (and
-          (not (= one target))
-          (not (= one (+ target distance)))
-          (not (= one (- target distance)))
-          (iter one (+ distance 1) (cdr rest))))))
+    (or (null? rest)
+        (let ((target (car rest)))
+          (and
+            (not (= one target))
+            (not (= one (+ target distance)))
+            (not (= one (- target distance)))
+            (iter one (+ distance 1) (cdr rest))))))
   (iter (car positions) 1 (cdr positions)))
 
 (print (queens 4))
