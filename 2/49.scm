@@ -61,9 +61,16 @@
                          (make-segment (make-vect 0 0.5) (make-vect 0.5 0))))
 
 ; d.
-; adridgement
-(segments->painter (list (make-segment (make-vect 0.5 0) (make-vect 0.99 0.5))
-                         (make-segment (make-vect 0.99 0.5) (make-vect 0.5 0.99))
-                         (make-segment (make-vect 0.5 0.99) (make-vect 0 0.5))
-                         (make-segment (make-vect 0 0.5) (make-vect 0.5 0))))
-
+(segments->painter (list (make-segment (make-vect 0 0.6) (make-vect 0.1 0.5))
+                         (make-segment (make-vect 0.1 0.5) (make-vect 0.2 0.6))
+                         (make-segment (make-vect 0.2 0.6) (make-vect 0.3 0.55))
+                         (make-segment (make-vect 0.3 0.55) (make-vect 0.2 0))
+                         (make-segment (make-vect 0.4 0) (make-vect 0.5 0.1))
+                         (make-segment (make-vect 0.5 0.1) (make-vect 0.6 0))
+                         (make-segment (make-vect 0.7 0) (make-vect 0.6 0.5))
+                         (make-segment (make-vect 0.6 0.5) (make-vect 0.99 0.3))
+                         (make-segment (make-vect 0 0.7) (make-vect 0.1 0.65))
+                         (make-segment (make-vect 0.1 0.65) (make-vect 0.2 0.67))
+                         (make-segment (make-vect 0.2 0.67) (make-vect 0.4 0.67))
+                         (make-segment (make-vect 0.4 0.67) (make-vect 0.3 0.8))
+                         (make-segment (make-vect 0.3 0.8) (make-vect 0.4 0.99))))
