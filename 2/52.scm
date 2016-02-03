@@ -2,16 +2,13 @@
 ; -> 2.49
 
 ; b
-(define (corner-split1 painter n)
+(define (corner-split painter n)
   (if (= n 0)
     painter
-    (below (beside (beside ()
-                           ())
-                   (corner-split1 painter (- n 1)))
-           (right-split painter n ))))
-
-(define (corner-split2 painter n)
-  (if (= n 0)
-    painter
-    (beside (up-split painter (- n 1))
-            (flip-vert (up-split painter (- n 1)))))
+    (let ((up (up-split painter (- n 1)))
+          (right (right-split painter (- n 1))))
+      (let ((top-left (beside (beside up up) (beside up up)))
+            (bottom-right (below right right))
+            (corner (corner-split painter (- n 1))))
+        (beside (below painter (beside top-left top-left))
+                (below bottom-right corner))))))
